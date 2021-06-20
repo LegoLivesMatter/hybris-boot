@@ -1841,6 +1841,16 @@ case "$DEVICE" in
             "$@"
         ;;
 
+    "j3xnlte")
+		sed -i \
+		    -e 's /dev/block/platform/sdio_emmc/by-name/SYSTEM /dev/block/mmcblk0p25 ' \
+		    -e 's /dev/block/platform/sdio_emmc/by-name/userdata /dev/block/mmcblk0p27 ' \
+			-e 's /dev/block/platform/sdio_emmc/by-name/CACHE /dev/block/mmcblk0p24 ' \
+		    -e 's /dev/block/platform/sdio_emmc/by-name/efs /dev/block/mmcblk0p17 ' \
+			-e 's /dev/block/platform/sdio_emmc/by-name/prodnv /dev/block/mmcblk0p18 ' \
+            "$@"
+		;;
+
     *)
         cat <<EOF
 
